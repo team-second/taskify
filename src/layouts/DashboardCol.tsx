@@ -1,10 +1,10 @@
 import cn from 'classnames'
 import { ReactNode, useState } from 'react'
 
+import AddTaskModal from '@/components/TaskManagerModal/AddTaskModal'
 import Bullet from '/public/icons/bullet.svg'
 import Setting from '/public/icons/settings.svg'
 import NewTaskButton from '@/components/NewTaskButton'
-
 import TaskCard from '../components/TaskCard'
 
 interface DashboardColProps {
@@ -14,9 +14,14 @@ interface DashboardColProps {
 
 export default function DashboardCol({ title }: DashboardColProps) {
   const [taskCards, setTaskCards] = useState<ReactNode[]>([])
+  const [isModalOpen, setIsModalOpen] = useState(false) // 모달 상태 관리
 
   const handleAddTask = () => {
-    setTaskCards([...taskCards, <TaskCard key={taskCards.length}>q</TaskCard>])
+    setIsModalOpen(true) // 버튼 클릭 시 모달 열기
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false) // 모달 닫기
   }
 
   return (
@@ -36,6 +41,9 @@ export default function DashboardCol({ title }: DashboardColProps) {
         </div>
         <NewTaskButton onClick={handleAddTask} />
         <div>{taskCards}</div>
+
+        {/* AddTaskModal 모달 사용 */}
+        <AddTaskModal isOpen={isModalOpen} onRequestClose={closeModal} />
       </div>
     </div>
   )

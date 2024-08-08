@@ -1,6 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation'
 
+import AddTaskModal from '@/components/TaskManagerModal/AddTaskModal'
 import DashboardCard from '@/components/DashboardCard'
 import DashboardCol from '@/layouts/DashboardCol'
 
@@ -17,6 +18,7 @@ export default function DashboardPage() {
       <DashboardCol title='To Do' />
       <DashboardCol title='On Progress' />
       <DashboardCol title='Done' />
+      {/* <AddTaskModal /> */}
       <section className='h-auto w-full flex-none overflow-hidden border-r border-custom-gray-200 lg:h-full lg:w-[354px]'>
         <div className='p-5 lg:py-16'>
           <p>대시보드 ID: {dashboardid}</p>
