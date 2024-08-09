@@ -24,39 +24,44 @@ export default function AddTaskForm() {
     <div className='w-[584px] rounded-2xl bg-white p-8'>
       <Form formId='AddTaskForm' onSubmit={temp}>
         <div className='mb-8 h-8 text-2xl font-bold'>할 일 생성</div>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader'>담당자</Form.LabelHeader>
           <Form.Input type='text' placeholder='담당자를 입력해 주세요' />
         </Form.Label>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader flex'>
-            제목<span className='ml-0.5 flex items-center'>*</span>
+            제목
+            <span className='ml-0.5 flex items-center text-custom-violet'>
+              *
+            </span>
           </Form.LabelHeader>
           <Form.Input type='text' placeholder='제목을 입력해 주세요' />
           {/* 텍스트 인풋 */}
         </Form.Label>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader flex'>
-            설명<span className='ml-0.5 flex items-center'>*</span>
+            설명
+            <span className='ml-0.5 flex items-center text-custom-violet'>
+              *
+            </span>
           </Form.LabelHeader>
-          <Form.Input
-            type='text'
+          <Form.TextArea
             placeholder='설명을 입력해 주세요'
             className='h-[126px]'
           />
           {/* 텍스트 인풋 */}
         </Form.Label>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader'>마감일</Form.LabelHeader>
           {/* 캘린더 선택 라이브러리 */}
           <Form.Input type='text' placeholder='마감일을 입력해 주세요' />
         </Form.Label>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader'>태그</Form.LabelHeader>
           <Form.Input type='text' placeholder='태그를 입력해 주세요' />
           {/* 입력 후 Enter */}
         </Form.Label>
-        <Form.Label className='mb-8'>
+        <Form.Label className='mb-5'>
           <Form.LabelHeader className='labelHeader'>이미지</Form.LabelHeader>
           {/* 숨겨진 파일 입력 */}
           <input
@@ -68,7 +73,11 @@ export default function AddTaskForm() {
               console.log(e.target.files)
             }}
           />
-          <button type='button' onClick={handleFileUploadClick}>
+          <button
+            className='h-[76px] w-[76px]'
+            type='button'
+            onClick={handleFileUploadClick}
+          >
             <AddBox className='h-[76px] w-[76px]' viewBox='0 0 25 25' />
           </button>
         </Form.Label>
